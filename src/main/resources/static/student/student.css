@@ -1,0 +1,12 @@
+#profile_id{
+    display: none;
+}
+#grade-list-empty{
+    display: none;
+}
+#grade-list{
+    text-align: left;
+}
+.badge-grade{
+    margin: 5px;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>School diary - register user</title>
+    <th:block th:insert="fragments/imports :: head"></th:block>
+    <th:block th:insert="fragments/imports :: student-liks"></th:block>
+</head>
+<body>
+<th:block th:insert="fragments/components :: nav"></th:block>
+<div class="main-wrapper">
+    <div class="row form-basic mt-3 justify-content-center">
+        <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12">
+            <div id="success-msg" class="alert alert-success mb-4" role="alert">
+                User was successfully added!
+            </div>
+            <h4>New user registration</h4>
+            <div class="input-group mb-3">
+                <input type="text" id="first-name" class="form-control rounded-right" placeholder="imie">
+                <div class="valid-feedback">
+                    Ok!
+                </div>
+                <div class="invalid-feedback">
+                    Proszę wpisać imie
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" id="last-name" class="form-control rounded-right" placeholder="nazwisko">
+                <div class="valid-feedback">
+                    Ok!
+                </div>
+                <div class="invalid-feedback">
+                    Proszę wpisać nazwisko
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" id="email" class="form-control rounded-right" placeholder="email">
+                <span class="input-group-text" id="mail">for@example.com</span>
+                <div class="valid-feedback">
+                    Ok!
+                </div>
+                <div class="invalid-feedback">
+                    Proszę o prawidłowy adres email
+                </div>
+            </div>
+            <label for="birth-date" class="form-label">Data urodzenia</label>
+            <div class="input-group mb-3">
+                <input type="date" id="birth-date" class="form-control datepicker rounded-right" placeholder="data urodzenia"  min="1960-01-01" max="2005-12-31">
+                <span class="input-group-text">Data urodzenia</span>
+                <div class="valid-feedback">
+                    Ok!
+                </div>
+                <div class="invalid-feedback">
+                    Proszę o podanie prawidłowej daty urodzenia (1960-2005)
+                </div>
+            </div>
+            <button type="button" class="btn btn-secondary" onclick="addStudent()">Potwierdz</button>
+        </div>
+    </div>
+</div>
+</body>
+<th:block th:insert="fragments/imports :: js_import"></th:block>
+
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>School diary - changelog</title>
+    <th:block th:insert="fragments/imports :: head"></th:block>
+    <th:block th:insert="fragments/imports :: grade-liks"></th:block>
+</head>
+<body>
+<th:block th:insert="fragments/components :: nav"></th:block>
+<div class="main-wrapper justify-content-center">
+    <a id="button-top"></a>
+    <!--    change log table section-->
+    <div class="changelog-table col-8 mt-4">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col" colspan="4">Change log table:</th>
+            </tr>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Date</th>
+                <th scope="col">Comment</th>
+                <th scope="col">User</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">0.35</th>
+                <td>29.03.2022</td>
+                <td>Added email service</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.34</th>
+                <td>28.03.2022</td>
+                <td>clean up</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.33</th>
+                <td>09.05.2021</td>
+                <td>documentation page, admin add button</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.32</th>
+                <td>06.05.2021</td>
+                <td>spring security, login and register form</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.31</th>
+                <td>02.05.2021</td>
+                <td>services refactoring, ResponseEntity part 2</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.30</th>
+                <td>02.05.2021</td>
+                <td>services refactoring, ResponseEntity</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.29</th>
+                <td>01.05.2021</td>
+                <td>grades list in student profile</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.28</th>
+                <td>25.04.2021</td>
+                <td>fixed delete user modal</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.27</th>
+                <td>25.04.2021</td>
+                <td>fixed user profile and js imports</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.26</th>
+                <td>24.04.2021</td>
+                <td>generate random user/student method, student list - added email</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.25</th>
+                <td>24.04.2021</td>
+                <td>Added modal to set grade in student profile, refactor and simplify of entities</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.24</th>
+                <td>10.04.2021</td>
+                <td>upgrade to java 11</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.23</th>
+                <td>10.04.2021</td>
+                <td>working on grade repository, commit before upgrade to java 11</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.22</th>
+                <td>09.04.2021</td>
+                <td>Grade I - created add grade view in user profile</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.21</th>
+                <td>08.04.2021</td>
+                <td>scroll to top button on home page, added email to user entity</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.20</th>
+                <td>08.04.2021</td>
+                <td>Created env on Open Shift and successful deployed latest version - <a
+                        href="http://school-diary1-artur-zaczek-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/"
+                        target="_blank">Open Shift</a></td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.19</th>
+                <td>07.04.2021</td>
+                <td>Refactoring-thymeleaf-include->import, clean up imports, new user profile, TODO's</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.18</th>
+                <td>06.04.2021</td>
+                <td>hotfix - thymeleaf template problem</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.17</th>
+                <td>06.04.2021</td>
+                <td>logger refactoring - new logger pattern</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.16</th>
+                <td>06.04.2021</td>
+                <td>refactoring, rest endpoints changed, students.js file split -> form & list, code clean up</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.15</th>
+                <td>05.04.2021</td>
+                <td>deleteStudentById() and delete button in user details- format required</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.14</th>
+                <td>05.04.2021</td>
+                <td>grade basic get and post, simple endpoint refactor</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.13</th>
+                <td>05.04.2021</td>
+                <td>added details to students list. working on Grades; added GradeRepository and Controller</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.12</th>
+                <td>05.04.2021</td>
+                <td>Created env on Heroku and successful deployed latest version <a
+                        href="https://school-2021.herokuapp.com/"
+                        target="_blank">Heroku</a></td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.11</th>
+                <td>05.04.2021</td>
+                <td>Junit added, first tests created for Grade.class, minor changes in user.js</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.10</th>
+                <td>04.04.2021</td>
+                <td>Email and birth date validation - new user registration</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.09</th>
+                <td>04.04.2021</td>
+                <td>Entities refactoring, implement baseEntity</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.08</th>
+                <td>04.04.2021</td>
+                <td>students form works with basic validation, nav bar changes, studentsList invoke get on load</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.07</th>
+                <td>04.04.2021</td>
+                <td>Students table sort</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.06</th>
+                <td>04.04.2021</td>
+                <td>Added simple function to show result of students search, added favicon, fix log file location
+                </td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.05</th>
+                <td>04.04.2021</td>
+                <td>Main page changelog</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.04</th>
+                <td>04.04.2021</td>
+                <td>Js moved from main to students, minor error page changes</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.03</th>
+                <td>03.04.2021</td>
+                <td>Created simple nav</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.02</th>
+                <td>03.04.2021</td>
+                <td>Building new user form and simple validation</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            <tr>
+                <th scope="row">0.01</th>
+                <td>03.04.2021</td>
+                <td>Old repo moved to new space</td>
+                <td><a href="https://github.com/artur1011010" target="_blank">@artur1011010</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+<th:block th:insert="fragments/imports :: js_import"></th:block>
+
+</html>

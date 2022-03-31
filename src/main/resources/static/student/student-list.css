@@ -1,0 +1,22 @@
+#studentListResultWrapper {
+    display: none;
+}
+
+.table-wrapper {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.student-table-details {
+    text-align: left;
+}
+
+.student-table-details-row {
+    line-height: 1em;
+}
+
+#form-search{
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}

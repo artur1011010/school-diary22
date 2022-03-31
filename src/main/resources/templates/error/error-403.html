@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>School diary - Error Page</title>
+    <th:block th:insert="fragments/imports.html :: head"></th:block>
+</head>
+<body>
+<th:block th:insert="fragments/components :: nav"></th:block>
+<div class="container-fluid">
+    <div class="justify-content-center error-page">
+        <h5>error 403</h5><br>
+        <a class="error-page-link" th:href="@{/}">not authorized - go back home</a>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>School diary</title>
+    <th:block th:insert="fragments/imports :: head"></th:block>
+    <th:block th:insert="fragments/imports :: grade-liks"></th:block>
+</head>
+<body>
+<th:block th:insert="fragments/components :: nav"></th:block>
+<div class="main-wrapper">
+    <div class="row form-basic mt-3 justify-content-center">
+        <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12">
+            <div id="profile_id" th:text="${student_id}"></div>
+            <!--            <button type="button" onclick="getStudentDetails()" class="btn btn-primary">getStudentDetails</button>-->
+            <h4>Student profile:</h4>
+            <div class="input-group mb-3">
+                <input type="text" id="id-details" class="form-control rounded-right" placeholder="id" disabled="true"
+                       value="testowe ID">
+                <div class="valid-feedback">
+                    Ok!
+                </div>
+                <div class="invalid-feedback">
+                    Proszę wpisać imie
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" id="first-name-details" class="form-control rounded-right" placeholder="imie"
+                       disabled="true" value="testowe imie">
+                <div class="valid-feedback">
+                    Ok!
+                </div>
+                <div class="invalid-feedback">
+                    Proszę wpisać imie
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" id="last-name-details" class="form-control rounded-right" placeholder="nazwisko"
+                       disabled="true" value="testowe nazwisko">
+                <div class="valid-feedback">
+                    Ok!
+                </div>
+                <div class="invalid-feedback">
+                    Proszę wpisać nazwisko
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" id="email-details" class="form-control rounded-right" placeholder="email"
+                       disabled="true" value="testowy email">
+                <div class="valid-feedback">
+                    Ok!
+                </div>
+                <div class="invalid-feedback">
+                    Proszę o prawidłowy adres email
+                </div>
+            </div>
+            <label for="birth-date-details" class="form-label">Data urodzenia</label>
+            <div class="input-group mb-3">
+                <input type="date" id="birth-date-details" class="form-control datepicker rounded-right"
+                       placeholder="data urodzenia" min="1960-01-01" max="2005-12-31" disabled="true"
+                       value="2005-12-31">
+                <div class="valid-feedback">
+                    Ok!
+                </div>
+                <div class="invalid-feedback">
+                    Proszę o podanie prawidłowej daty urodzenia (1960-2005)
+                </div>
+            </div>
+            <!--            MODAL-->
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-grade-modal">
+                Add grade
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="add-grade-modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Add grade</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="add-grade-value">Select Grade</label>
+                                <select class="form-control" id="add-grade-value">
+                                    <option th:each="grade : ${grades}" th:text="${grade}" th:value="${grade}"></option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="add-grade-subject1">Select Subject</label>
+                                <select class="form-control" id="add-grade-subject1">
+                                    <option>English</option>
+                                    <option>Maths</option>
+                                    <option>Science</option>
+                                    <option>History</option>
+                                    <option>Geography</option>
+                                    <option>Physical education</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" onclick="getStudentDetails()" class="btn btn-secondary"
+                                    data-dismiss="modal">Close
+                            </button>
+                            <button type="button" onclick="addGradeProfile()" data-dismiss="modal"
+                                    class="btn btn-primary">Save grade
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-3">
+            <div class="accordion" id="grades-accordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Grades:
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                         data-bs-parent="#grades-accordion">
+                        <div class="accordion-body">
+                            <div id="grade-list-empty" class="alert alert-warning" role="alert">this student has no
+                                grades...
+                            </div>
+                            <div id="grade-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<th:block th:insert="fragments/imports :: js_import"></th:block>
+<script>
+    getStudentDetails();
+    populateProfile();
+</script>
+</body>
+</html>
