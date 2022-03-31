@@ -12,7 +12,7 @@ School diary simulation, app allows managing users (eg. students) add grades mad
 
 ## Demo
 
-[HEROKU live demo](https://school-2021.herokuapp.com/) - Test env
+[HEROKU live demo](https://school-1500-2022.herokuapp.com/) - Test env
 
 ## screenshots
 

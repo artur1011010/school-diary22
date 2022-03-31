@@ -19,6 +19,7 @@ public class UserContextServiceImpl implements UserContextService {
 
     private final UserRepository userRepository;
 
+    @Override
     public String getLoggedAs() {
         final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication instanceof AnonymousAuthenticationToken) {
@@ -27,6 +28,7 @@ public class UserContextServiceImpl implements UserContextService {
         return authentication.getName();
     }
 
+    @Override
     public Long getLoggedId() {
         final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication instanceof AnonymousAuthenticationToken) {
@@ -38,6 +40,7 @@ public class UserContextServiceImpl implements UserContextService {
                 .orElse(0L);
     }
 
+    @Override
     public boolean hasRole(final String roleName) {
         final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication instanceof AnonymousAuthenticationToken) {
@@ -49,6 +52,7 @@ public class UserContextServiceImpl implements UserContextService {
                 .anyMatch(s -> s.equals(roleName));
     }
 
+    @Override
     public boolean hasAnyRole(final List<String> roleNames) {
         final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication instanceof AnonymousAuthenticationToken) {
@@ -63,6 +67,7 @@ public class UserContextServiceImpl implements UserContextService {
         return roles.containsAll(roleNames);
     }
 
+    @Override
     public boolean isLogged() {
         final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication instanceof AnonymousAuthenticationToken) {
@@ -71,6 +76,7 @@ public class UserContextServiceImpl implements UserContextService {
         return authentication.isAuthenticated();
     }
 
+    @Override
     public boolean isLoggedAsSchoolEmployee() {
         return hasAnyRole(List.of("TEACHER","PRINCIPAL","ADMIN"));
     }
