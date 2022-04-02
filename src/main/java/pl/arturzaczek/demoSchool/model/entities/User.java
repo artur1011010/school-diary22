@@ -7,6 +7,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.*;
 
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "USER")
 @Data
@@ -26,7 +27,7 @@ public class User extends BaseEntity {
     @Column(unique = true)
     private String email;
     private LocalDate birthDate;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
     private List<Grade> gradeList;
     @Column(name = "password_hash", length = 100)
     private String passwordHash;

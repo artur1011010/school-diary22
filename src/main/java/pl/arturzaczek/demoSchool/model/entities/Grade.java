@@ -6,6 +6,7 @@ import pl.arturzaczek.demoSchool.model.dto.GradeValueEnum;
 import javax.persistence.*;
 import java.time.LocalDate;
 
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
 @Builder
