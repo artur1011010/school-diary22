@@ -29,5 +29,4 @@ public class RoleServiceImpl implements RoleService {
                 .orElseGet(() -> roleRepository.save(new Role(roleEnum.toString())));
         user.addRole(role);
     }
-
 }

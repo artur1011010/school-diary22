@@ -17,18 +17,25 @@ public class StudentController {
 
     @GetMapping("/addStudent")
     public String addStudent() {
-        log.debug("url= /addStudent, method=addStudent()");
+        log.info("url= /addStudent, method=addStudent()");
         return "student/addStudent";
     }
 
     @GetMapping("/studentsList")
     public String getStudentsList() {
-        log.debug("url= /studentsList, method=getStudentsList()");
+        log.info("url= /studentsList, method=getStudentsList()");
         return "student/studentsList";
+    }
+
+    @GetMapping("/studentsList-student")
+    public String studentsListStudent() {
+        log.info("url= /studentsList-student, method=studentsListStudent()");
+        return "student/studentsListStudent";
     }
 
     @GetMapping("/studentProfile")
     public String getStudentProfile() {
+        log.info("url= /studentProfile, method=getStudentProfile()");
         return "studentProfile";
     }
 
@@ -36,6 +43,7 @@ public class StudentController {
     public String getStudentProfile2(@PathVariable final String id, final Model model) {
         model.addAttribute("student_id", id);
         model.addAttribute("grades", studentService.getGrades());
+        log.info("url= /studentProfile/{}, method=getStudentProfile2()", id);
         return "studentProfile";
     }
 }

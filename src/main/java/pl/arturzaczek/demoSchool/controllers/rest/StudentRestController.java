@@ -19,7 +19,7 @@ public class StudentRestController {
     private final UserService userService;
 
     @GetMapping("/students")
-    public List<StudentResponse> getStudents() {
+    public ResponseEntity<List<StudentResponse>> getStudents() {
         log.debug("url= /rest/students, method=getStudents()");
         return userService.getUsersList();
     }

@@ -65,12 +65,12 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    public List<StudentResponse> getUsersList() {
-        return userRepository
+    public ResponseEntity<List<StudentResponse>> getUsersList() {
+        return ResponseEntity.ok(userRepository
                 .findAll()
                 .stream()
                 .map(studentMapper::mapUserToStudentResponse)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList()));
     }
 
     public void saveUser(final User user) {

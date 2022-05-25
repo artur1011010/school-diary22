@@ -28,11 +28,11 @@ nav.navbar-light {
     border-bottom: 1px solid rgb(110, 109, 109);
 }
 
-nav.navbar-light #students-list-icon {
+nav.navbar-light .students-list-icon {
     float: left;
 }
 
-nav.navbar-light #students-list-icon img {
+nav.navbar-light .students-list-icon img {
     position: relative;
     top: 2px;
     float: left;

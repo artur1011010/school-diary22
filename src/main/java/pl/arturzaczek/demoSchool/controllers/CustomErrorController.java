@@ -1,6 +1,7 @@
 package pl.arturzaczek.demoSchool.controllers;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @Slf4j
-public class ErrorController implements org.springframework.boot.web.servlet.error.ErrorController  {
+public class CustomErrorController implements ErrorController {
 
     @RequestMapping("/error")
     public String handleError(final HttpServletRequest request) {

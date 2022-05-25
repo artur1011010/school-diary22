@@ -30,7 +30,7 @@ public class RandomUserHelper {
             "Szymańska", "Woźniak", "Dąbrowska", "Krawczyk", "Olszewska"));
     List<String> emails = new ArrayList<>(List.of("@tlen.pl", "@gmail.com", "@onet.pl", "@outlook.com", "@AOL.com", "@gmail.com"));
 
-
+    //todo - zmienic budowanie userow, dodac builder
     public List<User> createRandomUserM() {
         log.info("createRandomUserM()");
         Collections.shuffle(studentNamesM);
@@ -46,7 +46,7 @@ public class RandomUserHelper {
             user.setEmail(simplifiedEmail);
             user.setBirthDate(between());
             user.setPasswordHash(passwordEncoder.encode(simplifiedEmail));
-            roleService.getORCreateDefaultRole(user, RoleEnum.ROLE_USER);
+            roleService.getORCreateDefaultRole(user, RoleEnum.ROLE_STUDENT);
             users.add(user);
         }
         return users;
@@ -67,7 +67,7 @@ public class RandomUserHelper {
             user.setEmail(simplifiedEmail);
             user.setBirthDate(between());
             user.setPasswordHash(passwordEncoder.encode(simplifiedEmail));
-            roleService.getORCreateDefaultRole(user, RoleEnum.ROLE_USER);
+            roleService.getORCreateDefaultRole(user, RoleEnum.ROLE_STUDENT);
             users.add(user);
         }
         return users;

@@ -26,6 +26,7 @@ public class User extends BaseEntity {
     private String lastName;
     @Column(unique = true)
     private String email;
+    @Column(name = "birth_date")
     private LocalDate birthDate;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
     private List<Grade> gradeList;

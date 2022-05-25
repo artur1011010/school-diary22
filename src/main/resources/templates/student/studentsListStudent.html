@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>School diary - students</title>
+  <th:block th:insert="fragments/imports :: head"></th:block>
+  <th:block th:insert="fragments/imports :: student-liks-student"></th:block>
+</head>
+
+<body>
+<th:block th:insert="fragments/components :: nav"></th:block>
+<div class="main-wrapper container-fluid">
+  <a id="button-top"></a>
+  <h4>Students list</h4>
+  <!-- STUDENT SEARCH RESULT -->
+  <button type="button" onclick="getStudentsList()" class="btn btn-primary">refresh</button>
+  <div class="form-group">
+    <label class="mt-2" for="form-search">Search for student:</label>
+    <input type="text" oninput="search()" class="form-control" id="form-search" placeholder="type name, surname or email...">
+  </div>
+  <div id="studentListResultWrapper">
+    <div class="col-md-10 col-sm-12 table-wrapper py-2">
+      <table id="studentListResult" class="table-striped" data-toggle="table">
+        <thead>
+        <tr>
+          <th data-field="student_id" data-sortable="true" data-sorter="idSorter"
+              data-search-formatter="false">ID:
+          </th>
+          <th data-field="firstName" data-sortable="true" data-sorter="nameSorter"
+              data-search-formatter="false">Imię:
+          </th>
+          <th data-field="lastName" data-sortable="true" data-sorter="nameSorter"
+              data-search-formatter="false">Nazwisko:
+          </th>
+          <th data-field="email" data-sortable="true" data-sorter="nameSorter">Email:</th>
+          <th data-field="birthDate">Data urodzenia:</th>
+        </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+<th:block th:insert="fragments/imports :: js_import"></th:block>
+<script>
+  getStudentsList();
+</script>
+</html>

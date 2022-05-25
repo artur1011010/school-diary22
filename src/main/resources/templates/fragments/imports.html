@@ -26,14 +26,23 @@
         <script th:src="@{~/student/student-form.js}"></script>
         <script th:src="@{~/student/student-list.js}"></script>
     </th:block>
+    <th:block th:fragment="student-liks-student">
+        <link rel="stylesheet" type="text/css" th:href="@{~/student/student.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{~/student/student-form.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{~/student/student-list.css}">
+        <script th:src="@{~/student/student.js}"></script>
+        <script th:src="@{~/student/student-form.js}"></script>
+        <script th:src="@{~/student/student-list-student.js}"></script>
+    </th:block>
 
     <th:block th:fragment="grade-liks">
         <link rel="stylesheet" type="text/css" th:href="@{~/grade/grade.css}">
         <script th:src="@{~/grade/grade.js}"></script>
     </th:block>
 </head>
-<body>
 
+
+<body>
 <th:block th:fragment="js_import">
     <script src="https://code.jquery.com/jquery-3.6.0.js"
     crossorigin="anonymous"></script>

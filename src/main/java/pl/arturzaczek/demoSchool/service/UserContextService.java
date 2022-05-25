@@ -13,5 +13,7 @@ public interface UserContextService {
 
     boolean isLogged();
 
+    public boolean isLoggedAsStudent();
+
     boolean isLoggedAsSchoolEmployee();
 }

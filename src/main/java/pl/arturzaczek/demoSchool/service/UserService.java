@@ -9,7 +9,7 @@ import java.util.List;
 public interface UserService {
 
     void registerUser(UserRegisterForm userRegisterForm);
-    List<StudentResponse> getUsersList();
+    ResponseEntity<List<StudentResponse>> getUsersList();
     void saveUser(User user);
     void save20users();
     ResponseEntity<StudentResponse> getStudentById(Long student_id);

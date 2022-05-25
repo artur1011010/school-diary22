@@ -16,7 +16,6 @@ import javax.sql.DataSource;
 @RequiredArgsConstructor
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-
     private final DataSource dataSource;
     private final PasswordEncoder passwordEncoder;
 
@@ -34,6 +33,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
  */
                 .antMatchers("/studentProfile/*").hasAnyRole("PRINCIPAL", "ADMIN", "TEACHER")
                 .antMatchers("/rest/student/*").hasAnyRole("PRINCIPAL", "ADMIN", "TEACHER")
+                .antMatchers("/studentsList").hasAnyRole("PRINCIPAL", "ADMIN", "TEACHER")
+                .antMatchers("/studentsList-student").authenticated()
                 .anyRequest().permitAll()
                 .and()
                 .csrf().disable().headers().frameOptions().disable()
