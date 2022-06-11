@@ -23,7 +23,7 @@
                 <li class="nav-item ml-3">
                     <a class="nav-link ml-3 " th:href="@{/doc}">Doc</a>
                 </li>
-                <li class="nav-item ml-3" th:if="${@userContextServiceImpl.isLoggedAsSchoolEmployee}">
+                <li class="nav-item ml-3" th:if="${@userContextServiceImpl.isLoggedAsAdmin()}">
                     <a class="nav-link ml-3" th:href="@{/addStudent}">Add student</a>
                 </li>
                 <li class="nav-item ml-3 students-list-icon" th:if="${@userContextServiceImpl.isLoggedAsSchoolEmployee}">
@@ -33,6 +33,10 @@
                 <li class="nav-item ml-3 students-list-icon" th:if="${@userContextServiceImpl.isLoggedAsStudent}">
                     <a class="ml-3 nav-link" th:href="@{/studentsList-student}"><img
                             th:src="@{~/images/icon/address-book-regular.svg}" alt="address book">Students list</a>
+                </li>
+                <li class="nav-item ml-3 students-list-icon" th:if="${@userContextServiceImpl.isLoggedAsSchoolEmployee}">
+                    <a class="ml-3 nav-link" th:href="@{/student-classes}"><img
+                            th:src="@{~/images/icon/address-book-regular.svg}" alt="address book">School classes</a>
                 </li>
             </ul>
             <ul class="navbar-nav user-field">

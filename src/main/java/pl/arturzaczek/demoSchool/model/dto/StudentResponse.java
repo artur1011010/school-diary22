@@ -22,6 +22,5 @@ public class StudentResponse {
     private String email;
     private LocalDate birthDate;
     private List<Grade> gradeList = new ArrayList<>();
-
 }
 

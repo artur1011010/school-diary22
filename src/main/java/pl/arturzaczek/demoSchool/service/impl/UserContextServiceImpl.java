@@ -1,4 +1,4 @@
-package pl.arturzaczek.demoSchool.service.implementation;
+package pl.arturzaczek.demoSchool.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -57,7 +57,6 @@ public class UserContextServiceImpl implements UserContextService {
 
     @Override
     public boolean hasAnyRole(final List<String> roleNames) {
-        log.info("hasAnyRole: {}", roleNames);
         final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication instanceof AnonymousAuthenticationToken) {
             return false;
@@ -66,7 +65,10 @@ public class UserContextServiceImpl implements UserContextService {
                 .stream()
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.toList());
-        log.info("hasAnyRole: {}, ROLES: {}, has: {}", roleNames, roles, roles.containsAll(roleNames));
+
+        if(log.isDebugEnabled()){
+            log.debug("hasAnyRole: {}, ROLES: {}, has: {}", roleNames, roles, roles.containsAll(roleNames));
+        }
         return !Collections.disjoint(roles, roleNames);
     }
 
@@ -87,5 +89,10 @@ public class UserContextServiceImpl implements UserContextService {
     @Override
     public boolean isLoggedAsSchoolEmployee() {
         return hasAnyRole(List.of("ROLE_TEACHER","ROLE_PRINCIPAL","ROLE_ADMIN"));
+    }
+
+    @Override
+    public boolean isLoggedAsAdmin() {
+        return hasAnyRole(List.of("ROLE_ADMIN"));
     }
 }

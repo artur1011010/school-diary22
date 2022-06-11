@@ -1,7 +1,8 @@
-package pl.arturzaczek.demoSchool.service.implementation;
+package pl.arturzaczek.demoSchool.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,12 @@ import javax.mail.internet.MimeMessage;
 @Slf4j
 public class MailServiceImpl implements MailService {
 
+    @Value("${mail.content}")
+    private String content;
+
+    @Value("${mail.title}")
+    private String title;
+
     private final JavaMailSender javaMailSender;
 
     public void sendMail(final String to,
@@ -27,5 +34,14 @@ public class MailServiceImpl implements MailService {
         mimeMessageHelper.setSubject(subject);
         mimeMessageHelper.setText(text, isHtmlContent);
         javaMailSender.send(mimeMessage);
+    }
+
+    public void createRegistrationMail(final String email) {
+        final String contentToSend = content.replace("?", email);
+        try {
+            sendMail(email, title, contentToSend, true);
+        } catch (MessagingException ex) {
+            log.error("Error during sending email\n{}", ex.getMessage());
+        }
     }
 }

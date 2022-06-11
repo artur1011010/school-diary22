@@ -1,4 +1,4 @@
-package pl.arturzaczek.demoSchool.service.implementation;
+package pl.arturzaczek.demoSchool.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

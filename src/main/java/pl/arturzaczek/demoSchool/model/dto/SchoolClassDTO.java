@@ -6,19 +6,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.Objects;
 
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class UserDTO {
-    private Long id;
+public class SchoolClassDTO {
+    private Long classId;
     private LocalDateTime addedDate;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private Date birthDate;
+    private String schoolClassName;
+    private Long classTeacherId;
+    private String SchoolClassTeacherNameAndSurname;
 }

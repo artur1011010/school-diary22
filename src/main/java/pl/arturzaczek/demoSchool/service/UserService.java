@@ -2,6 +2,7 @@ package pl.arturzaczek.demoSchool.service;
 
 import org.springframework.http.ResponseEntity;
 import pl.arturzaczek.demoSchool.model.dto.StudentResponse;
+import pl.arturzaczek.demoSchool.model.dto.TeacherDTO;
 import pl.arturzaczek.demoSchool.model.dto.UserRegisterForm;
 import pl.arturzaczek.demoSchool.model.entities.User;
 import java.util.List;
@@ -16,4 +17,5 @@ public interface UserService {
     ResponseEntity deleteById(Long long_id);
     boolean checkIfUserExist(String email);
     List<User> getUserList();
+    List<TeacherDTO> getSchoolTeachersList();
 }

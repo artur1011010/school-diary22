@@ -5,6 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import pl.arturzaczek.demoSchool.model.entities.User;
+import pl.arturzaczek.demoSchool.model.repositories.RoleRepository;
+import pl.arturzaczek.demoSchool.model.repositories.UserRepository;
 import pl.arturzaczek.demoSchool.service.RoleService;
 
 import java.time.LocalDate;
@@ -21,6 +23,8 @@ public class RandomUserHelper {
 
     private final RoleService roleService;
     private final PasswordEncoder passwordEncoder;
+    private final UserRepository userRepository;
+
 
     List<String> studentNamesM = new ArrayList<>(List.of("Artur", "Michał", "Marcin", "Mateusz", "Krzysztof", "Piotr", "Paweł", "Adrian", "Kamil", "Sebastian", "Przemysław", "Dawid", "Karol", "Tomasz", "Wojciech"));
     List<String> studentNamesF = new ArrayList<>(List.of("Anna", "Dorota", "Katarzyna", "Justyna", "Beata", "Julia", "Marta", "Natalia", "Kamila", "Małgorzata", "Karolina", "Klaudia", "Magdalena", "Ewa"));
@@ -30,43 +34,29 @@ public class RandomUserHelper {
             "Szymańska", "Woźniak", "Dąbrowska", "Krawczyk", "Olszewska"));
     List<String> emails = new ArrayList<>(List.of("@tlen.pl", "@gmail.com", "@onet.pl", "@outlook.com", "@AOL.com", "@gmail.com"));
 
-    //todo - zmienic budowanie userow, dodac builder
-    public List<User> createRandomUserM() {
-        log.info("createRandomUserM()");
-        Collections.shuffle(studentNamesM);
-        Collections.shuffle(studentLastNamesM);
-        Collections.shuffle(emails);
-        final List<User> users = new ArrayList<>();
-        final Random random = new Random();
-        for (int i = 0; i < 10; i++) {
-            final User user = new User();
-            user.setFirstName(studentNamesM.get(i));
-            user.setLastName(studentLastNamesM.get(i));
-            String simplifiedEmail = simplifyLatinChars(studentNamesM.get(i) + "." + studentLastNamesM.get(i)) + random.nextInt(1000) + emails.get(i / 2);
-            user.setEmail(simplifiedEmail);
-            user.setBirthDate(between());
-            user.setPasswordHash(passwordEncoder.encode(simplifiedEmail));
-            roleService.getORCreateDefaultRole(user, RoleEnum.ROLE_STUDENT);
-            users.add(user);
-        }
-        return users;
+    public void createAndSave20TestUsers() {
+        final List<User> randomUserM = createRandomUser(studentNamesM, studentLastNamesM, emails);
+        final List<User> randomUserF = createRandomUser(studentNamesF, studentLastNamesF, emails);
+        randomUserM.addAll(randomUserF);
+        userRepository.saveAll(randomUserM);
+        log.info("random users created");
     }
 
-    public List<User> createRandomUserF() {
-        log.info("createRandomUserF()");
-        Collections.shuffle(studentNamesF);
-        Collections.shuffle(studentLastNamesF);
+    private List<User> createRandomUser(List <String> studentNames, List <String>studentLastNames, List <String>emails) {
+        Collections.shuffle(studentNames);
+        Collections.shuffle(studentLastNames);
         Collections.shuffle(emails);
         final List<User> users = new ArrayList<>();
         final Random random = new Random();
         for (int i = 0; i < 10; i++) {
-            final User user = new User();
-            user.setFirstName(studentNamesF.get(i));
-            user.setLastName(studentLastNamesF.get(i));
-            String simplifiedEmail = simplifyLatinChars(studentNamesF.get(i) + "." + studentLastNamesF.get(i)) + random.nextInt(1000) + emails.get(i / 2);
-            user.setEmail(simplifiedEmail);
-            user.setBirthDate(between());
-            user.setPasswordHash(passwordEncoder.encode(simplifiedEmail));
+            final String simplifiedEmail = simplifyLatinChars(studentNames.get(i) + "." + studentLastNames.get(i)) + random.nextInt(1000) + emails.get(i / 2);
+            final User user = User.builder()
+                    .firstName(studentNames.get(i))
+                    .lastName(studentLastNames.get(i))
+                    .email(simplifiedEmail)
+                    .birthDate(between())
+                    .passwordHash(passwordEncoder.encode(simplifiedEmail))
+                    .build();
             roleService.getORCreateDefaultRole(user, RoleEnum.ROLE_STUDENT);
             users.add(user);
         }

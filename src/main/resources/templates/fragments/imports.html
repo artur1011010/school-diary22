@@ -26,6 +26,18 @@
         <script th:src="@{~/student/student-form.js}"></script>
         <script th:src="@{~/student/student-list.js}"></script>
     </th:block>
+
+    <th:block th:fragment="class-links">
+        <link rel="stylesheet" type="text/css" th:href="@{~/student/student.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{~/student/student-form.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{~/student/student-list.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{~/school-class/school-class.css}">
+        <script th:src="@{~/student/student.js}"></script>
+        <script th:src="@{~/student/student-form.js}"></script>
+<!--        <script th:src="@{~/student/student-list.js}"></script>-->
+        <script th:src="@{~/school-class/school-class.js}"></script>
+    </th:block>
+
     <th:block th:fragment="student-liks-student">
         <link rel="stylesheet" type="text/css" th:href="@{~/student/student.css}">
         <link rel="stylesheet" type="text/css" th:href="@{~/student/student-form.css}">
@@ -35,10 +47,6 @@
         <script th:src="@{~/student/student-list-student.js}"></script>
     </th:block>
 
-    <th:block th:fragment="grade-liks">
-        <link rel="stylesheet" type="text/css" th:href="@{~/grade/grade.css}">
-        <script th:src="@{~/grade/grade.js}"></script>
-    </th:block>
 </head>
 
 

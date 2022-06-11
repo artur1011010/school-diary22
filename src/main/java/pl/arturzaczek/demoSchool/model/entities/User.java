@@ -32,6 +32,9 @@ public class User extends BaseEntity {
     private List<Grade> gradeList;
     @Column(name = "password_hash", length = 100)
     private String passwordHash;
+    @ManyToOne
+    @JoinColumn(name = "SCHOOL_CLASS")
+    private SchoolClass schoolClass;
 
     public User(String firstName, String lastName, String email) {
         this.firstName = firstName;

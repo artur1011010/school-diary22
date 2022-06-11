@@ -2,10 +2,11 @@ package pl.arturzaczek.demoSchool.utils;
 
 import org.springframework.stereotype.Component;
 import pl.arturzaczek.demoSchool.model.dto.StudentResponse;
+import pl.arturzaczek.demoSchool.model.dto.TeacherDTO;
 import pl.arturzaczek.demoSchool.model.entities.User;
 
 @Component
-public class StudentMapper {
+public class UserMapper {
     public StudentResponse mapUserToStudentResponse(final User user){
         return StudentResponse.builder()
                 .id(user.getId())
@@ -13,6 +14,15 @@ public class StudentMapper {
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
                 .gradeList(user.getGradeList())
+                .email(user.getEmail())
+                .build();
+    }
+
+    public TeacherDTO mapUserToTeacherDTO(final User user){
+        return TeacherDTO.builder()
+                .id(user.getId())
+                .firstName(user.getFirstName())
+                .lastName(user.getLastName())
                 .email(user.getEmail())
                 .build();
     }

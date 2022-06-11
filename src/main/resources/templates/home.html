@@ -1,25 +1,24 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
-<head>
-    <title>School diary</title>
-    <th:block th:insert="fragments/imports :: head"></th:block>
-    <th:block th:insert="fragments/imports :: grade-liks"></th:block>
-</head>
-<body>
-<th:block th:insert="fragments/components :: nav"></th:block>
-<div class="main-wrapper justify-content-center">
-    <a id="button-top"></a>
-    <h2>School diary:</h2>
+    <!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>School diary</title>
+        <th:block th:insert="fragments/imports :: head"></th:block>
+    </head>
+    <body>
+    <th:block th:insert="fragments/components :: nav"></th:block>
+    <div class="main-wrapper justify-content-center">
+        <a id="button-top"></a>
+        <h2>School diary:</h2>
 
-    <div class="col-8 mt-3 custom-jumbotron">
-        <div class="h-100 p-5 bg-light border rounded-3">
-            <p>Aplikacja służy do przegladania i dodawania studentów dodatkowo umożliwia wystawianie ocen</p>
-            <p><a th:href="@{/doc}">opis działania</a></p>
-            <p><a href="https://school-2021.herokuapp.com/" target="_blank">środowisko testowe</a></p>
+        <div class="col-8 mt-3 custom-jumbotron">
+            <div class="h-100 p-5 bg-light border rounded-3">
+                <p>Aplikacja służy do przegladania i dodawania studentów dodatkowo umożliwia wystawianie ocen</p>
+                <p><a th:href="@{/doc}">opis działania</a></p>
+                <p><a href="https://school-2021.herokuapp.com/" target="_blank">środowisko testowe</a></p>
+            </div>
         </div>
     </div>
-</div>
-</body>
-<th:block th:insert="fragments/imports :: js_import"></th:block>
+    </body>
+    <th:block th:insert="fragments/imports :: js_import"></th:block>
 
-</html>
+    </html>

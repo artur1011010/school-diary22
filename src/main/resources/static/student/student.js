@@ -49,17 +49,16 @@ function parseGradeToTable(grades) {
     const tableEnding = ' </tbody></table>';
     let rows = [];
     let subjects = [];
-
-    for (let i = 0; i < grades.length; i++) {
-        const tempSubject = grades[i].subject;
+    grades.forEach(grade => {
+        const tempSubject = grade.subject;
         const index = subjects.indexOf(tempSubject);
         if (index === -1) {
             subjects.push(tempSubject);
-            rows[subjects.indexOf(tempSubject)] += ' <tr><th scope="row">' + tempSubject + '</th><td>' + parseGrade(grades[i]);
+            rows[subjects.indexOf(tempSubject)] += ' <tr><th scope="row">' + tempSubject + '</th><td>' + parseGrade(grade);
         } else {
-            rows[index] += parseGrade(grades[i]);
+            rows[index] += parseGrade(grade);
         }
-    }
+    })
     result += tableHeader;
     rows.forEach(row => result += (row + '</td></tr>'));
     result += tableEnding;
@@ -78,7 +77,7 @@ function parseGrade(grade) {
             result = '<span class="badge badge-success badge-grade">bardzo dobra-5</span>';
             break;
         case 'GOOD':
-            result = '<span class="badge badge-secondary badge-grade">dobra-4</span>';
+            result = '<span class="badge badge-success badge-grade">dobra-4</span>';
             break;
         case 'SATISFACTORY':
             result = '<span class="badge badge-secondary badge-grade">dostateczna-3</span>';
@@ -94,10 +93,11 @@ function parseGrade(grade) {
 }
 
 function addGradeProfile() {
-    let id = $("#id_student-details").val();
-    if (!id) {
-        id = $("#profile_id").html();
-    }
+    let id = $("#id-details").val();
+    // if (!id) {
+    //     id = $("#id-details").val();
+    // }
+    console.log("id: " + id)
     const subjectName = $("#add-grade-subject1").val();
     const gradeValue = $("#add-grade-value").val();
     // console.log('grade value:\n' + gradeValue)
@@ -107,6 +107,8 @@ function addGradeProfile() {
     }
     const stringGrade = JSON.stringify(gradeDTO);
     const url = "/rest/grade/" + id;
+    console.log("\"/rest/grade/\" + id")
+    console.log(gradeDTO)
     $.ajax({
         url: url,
         contentType: "application/json",

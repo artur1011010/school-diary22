@@ -1,4 +1,4 @@
-package pl.arturzaczek.demoSchool.service.implementation;
+package pl.arturzaczek.demoSchool.service.impl;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

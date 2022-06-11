@@ -25,29 +25,28 @@ public class StudentRestController {
     }
 
     @PostMapping("/student")
-    public ResponseEntity addStudent(@RequestBody final User user) {
+    public ResponseEntity<Void> addStudent(@RequestBody final User user) {
         log.debug("url= /rest/student, method=addStudent() STUDENT: " + user);
         userService.saveUser(user);
-        return new ResponseEntity(HttpStatus.ACCEPTED);
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("/add20Students")
-    public ResponseEntity add20Students() {
+    public ResponseEntity<Void> add20Students() {
         userService.save20users();
-        return new ResponseEntity(HttpStatus.ACCEPTED);
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("/student/{studentId}")
-    public ResponseEntity<StudentResponse> getStudentById(@PathVariable final String studentId) {
+    public ResponseEntity<StudentResponse> getStudentById(@PathVariable final Long studentId) {
         log.debug("url= /rest/student/{student_id}, method=getStudentById() STUDENT: " + studentId);
-        final Long longId = Long.parseLong(studentId);
-        return userService.getStudentById(longId);
+        return userService.getStudentById(studentId);
     }
 
     @DeleteMapping("/student/{studentId}")
-    public ResponseEntity deleteStudentById(@PathVariable final String studentId) {
+    public ResponseEntity<Void> deleteStudentById(@PathVariable final Long studentId) {
         log.debug("url= /rest/student/{student_id}, method=deleteStudentById() STUDENT: " + studentId);
-        final Long longId = Long.parseLong(studentId);
-        return userService.deleteById(longId);
+        userService.deleteById(studentId);
+        return ResponseEntity.ok().build();
     }
 }
