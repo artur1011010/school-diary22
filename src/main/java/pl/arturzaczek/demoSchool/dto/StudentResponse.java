@@ -1,10 +1,10 @@
-package pl.arturzaczek.demoSchool.model.dto;
+package pl.arturzaczek.demoSchool.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import pl.arturzaczek.demoSchool.model.entities.Grade;
+import pl.arturzaczek.demoSchool.jpa.entities.Grade;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

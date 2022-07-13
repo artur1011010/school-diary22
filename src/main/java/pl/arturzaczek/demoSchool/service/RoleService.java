@@ -1,6 +1,6 @@
 package pl.arturzaczek.demoSchool.service;
 
-import pl.arturzaczek.demoSchool.model.entities.User;
+import pl.arturzaczek.demoSchool.jpa.entities.User;
 import pl.arturzaczek.demoSchool.utils.RoleEnum;
 
 public interface RoleService {

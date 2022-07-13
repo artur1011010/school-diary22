@@ -1,4 +1,4 @@
-package pl.arturzaczek.demoSchool.controllers;
+package pl.arturzaczek.demoSchool.web.controllers;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -11,7 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import pl.arturzaczek.demoSchool.model.dto.UserRegisterForm;
+import pl.arturzaczek.demoSchool.dto.UserRegisterForm;
 import pl.arturzaczek.demoSchool.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -48,7 +48,7 @@ public class UserController {
         }
         userService.registerUser(userRegisterForm);
         model.addAttribute("registered_success", "new user registered successfully");
-        System.out.println("user registered successfully");
+       log.info("user registered successfully");
         return "redirect:/index";
     }
 

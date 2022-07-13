@@ -1,11 +1,11 @@
-package pl.arturzaczek.demoSchool.controllers.rest;
+package pl.arturzaczek.demoSchool.rest.controllers;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.arturzaczek.demoSchool.model.dto.SchoolClassDTO;
-import pl.arturzaczek.demoSchool.model.dto.TeacherDTO;
+import pl.arturzaczek.demoSchool.dto.SchoolClassDTO;
+import pl.arturzaczek.demoSchool.dto.TeacherDTO;
 import pl.arturzaczek.demoSchool.service.SchoolClassService;
 import pl.arturzaczek.demoSchool.service.UserService;
 

@@ -1,6 +1,5 @@
-package pl.arturzaczek.demoSchool.model.entities;
+package pl.arturzaczek.demoSchool.jpa.entities;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

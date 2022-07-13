@@ -1,8 +1,8 @@
-package pl.arturzaczek.demoSchool.model.repositories;
+package pl.arturzaczek.demoSchool.jpa.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import pl.arturzaczek.demoSchool.model.entities.Role;
+import pl.arturzaczek.demoSchool.jpa.entities.Role;
 
 import java.util.Optional;
 

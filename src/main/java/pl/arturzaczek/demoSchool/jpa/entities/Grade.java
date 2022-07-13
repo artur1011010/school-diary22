@@ -1,10 +1,9 @@
-package pl.arturzaczek.demoSchool.model.entities;
+package pl.arturzaczek.demoSchool.jpa.entities;
 
 import lombok.*;
-import pl.arturzaczek.demoSchool.model.dto.GradeValueEnum;
+import pl.arturzaczek.demoSchool.dto.GradeValueEnum;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity

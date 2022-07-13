@@ -2,7 +2,7 @@ package pl.arturzaczek.demoSchool.service.impl;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import pl.arturzaczek.demoSchool.model.repositories.UserRepository;
+import pl.arturzaczek.demoSchool.jpa.repositories.UserRepository;
 
 import java.util.List;
 

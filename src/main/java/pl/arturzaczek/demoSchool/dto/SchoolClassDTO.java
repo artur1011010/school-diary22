@@ -1,4 +1,4 @@
-package pl.arturzaczek.demoSchool.model.dto;
+package pl.arturzaczek.demoSchool.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

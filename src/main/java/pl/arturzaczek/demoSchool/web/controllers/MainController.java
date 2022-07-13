@@ -1,4 +1,4 @@
-package pl.arturzaczek.demoSchool.controllers;
+package pl.arturzaczek.demoSchool.web.controllers;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;

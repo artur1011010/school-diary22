@@ -4,9 +4,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-import pl.arturzaczek.demoSchool.model.entities.User;
-import pl.arturzaczek.demoSchool.model.repositories.RoleRepository;
-import pl.arturzaczek.demoSchool.model.repositories.UserRepository;
+import pl.arturzaczek.demoSchool.jpa.entities.User;
+import pl.arturzaczek.demoSchool.jpa.repositories.UserRepository;
 import pl.arturzaczek.demoSchool.service.RoleService;
 
 import java.time.LocalDate;

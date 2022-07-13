@@ -1,10 +1,10 @@
 package pl.arturzaczek.demoSchool.service;
 
 import org.springframework.http.ResponseEntity;
-import pl.arturzaczek.demoSchool.model.dto.StudentResponse;
-import pl.arturzaczek.demoSchool.model.dto.TeacherDTO;
-import pl.arturzaczek.demoSchool.model.dto.UserRegisterForm;
-import pl.arturzaczek.demoSchool.model.entities.User;
+import pl.arturzaczek.demoSchool.dto.StudentResponse;
+import pl.arturzaczek.demoSchool.dto.TeacherDTO;
+import pl.arturzaczek.demoSchool.dto.UserRegisterForm;
+import pl.arturzaczek.demoSchool.jpa.entities.User;
 import java.util.List;
 
 public interface UserService {

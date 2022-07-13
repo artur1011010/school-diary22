@@ -1,6 +1,6 @@
 package pl.arturzaczek.demoSchool.service;
 
-import pl.arturzaczek.demoSchool.model.dto.SchoolClassDTO;
+import pl.arturzaczek.demoSchool.dto.SchoolClassDTO;
 
 import java.util.List;
 

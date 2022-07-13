@@ -1,8 +1,8 @@
 package pl.arturzaczek.demoSchool.utils;
 
 import org.springframework.stereotype.Component;
-import pl.arturzaczek.demoSchool.model.dto.GradeDTO;
-import pl.arturzaczek.demoSchool.model.entities.Grade;
+import pl.arturzaczek.demoSchool.dto.GradeDTO;
+import pl.arturzaczek.demoSchool.jpa.entities.Grade;
 
 @Component
 public class GradeMapper {

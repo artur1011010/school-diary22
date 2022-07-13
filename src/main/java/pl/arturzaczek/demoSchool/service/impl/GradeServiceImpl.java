@@ -3,10 +3,10 @@ package pl.arturzaczek.demoSchool.service.impl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import pl.arturzaczek.demoSchool.model.dto.GradeDTO;
-import pl.arturzaczek.demoSchool.model.entities.Grade;
-import pl.arturzaczek.demoSchool.model.entities.User;
-import pl.arturzaczek.demoSchool.model.repositories.UserRepository;
+import pl.arturzaczek.demoSchool.dto.GradeDTO;
+import pl.arturzaczek.demoSchool.jpa.entities.Grade;
+import pl.arturzaczek.demoSchool.jpa.entities.User;
+import pl.arturzaczek.demoSchool.jpa.repositories.UserRepository;
 import pl.arturzaczek.demoSchool.service.GradeService;
 import pl.arturzaczek.demoSchool.utils.GradeMapper;
 

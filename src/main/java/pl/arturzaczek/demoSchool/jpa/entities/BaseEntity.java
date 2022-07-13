@@ -1,4 +1,4 @@
-package pl.arturzaczek.demoSchool.model.entities;
+package pl.arturzaczek.demoSchool.jpa.entities;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

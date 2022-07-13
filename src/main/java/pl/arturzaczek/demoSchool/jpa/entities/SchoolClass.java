@@ -1,4 +1,4 @@
-package pl.arturzaczek.demoSchool.model.entities;
+package pl.arturzaczek.demoSchool.jpa.entities;
 
 import lombok.*;
 

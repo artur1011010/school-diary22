@@ -7,8 +7,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-import pl.arturzaczek.demoSchool.model.entities.BaseEntity;
-import pl.arturzaczek.demoSchool.model.repositories.UserRepository;
+import pl.arturzaczek.demoSchool.jpa.entities.BaseEntity;
+import pl.arturzaczek.demoSchool.jpa.repositories.UserRepository;
 import pl.arturzaczek.demoSchool.service.UserContextService;
 
 import java.util.Collections;

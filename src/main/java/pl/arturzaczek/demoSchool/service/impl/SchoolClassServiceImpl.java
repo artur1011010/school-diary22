@@ -3,8 +3,8 @@ package pl.arturzaczek.demoSchool.service.impl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import pl.arturzaczek.demoSchool.model.dto.SchoolClassDTO;
-import pl.arturzaczek.demoSchool.model.repositories.SchoolClassRepository;
+import pl.arturzaczek.demoSchool.dto.SchoolClassDTO;
+import pl.arturzaczek.demoSchool.jpa.repositories.SchoolClassRepository;
 import pl.arturzaczek.demoSchool.service.SchoolClassService;
 import pl.arturzaczek.demoSchool.utils.SchoolClassMapper;
 

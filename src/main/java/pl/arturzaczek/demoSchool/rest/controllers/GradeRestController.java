@@ -1,10 +1,10 @@
-package pl.arturzaczek.demoSchool.controllers.rest;
+package pl.arturzaczek.demoSchool.rest.controllers;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.arturzaczek.demoSchool.model.dto.GradeDTO;
+import pl.arturzaczek.demoSchool.dto.GradeDTO;
 import pl.arturzaczek.demoSchool.service.GradeService;
 
 @RestController

@@ -3,9 +3,9 @@ package pl.arturzaczek.demoSchool.service.impl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import pl.arturzaczek.demoSchool.model.entities.Role;
-import pl.arturzaczek.demoSchool.model.entities.User;
-import pl.arturzaczek.demoSchool.model.repositories.RoleRepository;
+import pl.arturzaczek.demoSchool.jpa.entities.Role;
+import pl.arturzaczek.demoSchool.jpa.entities.User;
+import pl.arturzaczek.demoSchool.jpa.repositories.RoleRepository;
 import pl.arturzaczek.demoSchool.service.RoleService;
 import pl.arturzaczek.demoSchool.utils.RoleEnum;
 

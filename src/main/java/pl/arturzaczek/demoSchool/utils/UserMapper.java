@@ -1,9 +1,9 @@
 package pl.arturzaczek.demoSchool.utils;
 
 import org.springframework.stereotype.Component;
-import pl.arturzaczek.demoSchool.model.dto.StudentResponse;
-import pl.arturzaczek.demoSchool.model.dto.TeacherDTO;
-import pl.arturzaczek.demoSchool.model.entities.User;
+import pl.arturzaczek.demoSchool.dto.StudentResponse;
+import pl.arturzaczek.demoSchool.dto.TeacherDTO;
+import pl.arturzaczek.demoSchool.jpa.entities.User;
 
 @Component
 public class UserMapper {
