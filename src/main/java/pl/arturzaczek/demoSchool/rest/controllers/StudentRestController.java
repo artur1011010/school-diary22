@@ -26,7 +26,7 @@ public class StudentRestController {
     @PostMapping("/student")
     public ResponseEntity<Void> addStudent(@RequestBody final User user) {
         log.debug("url= /rest/student, method=addStudent() STUDENT: " + user);
-        userService.saveUser(user);
+        userService.saveNewUser(user);
         return ResponseEntity.ok().build();
     }
 
@@ -47,5 +47,11 @@ public class StudentRestController {
         log.debug("url= /rest/student/{student_id}, method=deleteStudentById() STUDENT: " + studentId);
         userService.deleteById(studentId);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/student/my-profile")
+    public ResponseEntity<StudentResponse> getMyProfileData(@PathVariable final Long studentId) {
+        log.debug("url= /rest/student/{student_id}, method=getStudentById() STUDENT: " + studentId);
+        return userService.getStudentById(studentId);
     }
 }

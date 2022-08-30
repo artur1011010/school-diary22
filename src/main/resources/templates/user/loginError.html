@@ -9,11 +9,10 @@
 <th:block th:insert="fragments/components :: nav"></th:block>
 <div class="main-wrapper justify-content-center">
     <a id="button-top"></a>
-    <h2>login error</h2>
-
+    <h2>Logowanie nieudane</h2>
     <div class="custom-alert alert alert-danger col-8 mt-4" role="alert">
-        <h4>login error</h4>
-        <a class="nav-link" th:href="@{/user/login}">go back to login page</a>
+        <h4>Nastąpił błąd podczas logowania, sprawdź swoje dane użyte do logownaia i spróbuj ponownie</h4>
+        <a class="nav-link" th:href="@{/user/login}">wróć do strony logowania</a>
     </div>
 </div>
 </body>

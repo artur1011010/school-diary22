@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+import pl.arturzaczek.demoSchool.jpa.entities.User;
 import pl.arturzaczek.demoSchool.service.MailService;
 
 import javax.mail.MessagingException;
@@ -24,24 +25,22 @@ public class MailServiceImpl implements MailService {
 
     private final JavaMailSender javaMailSender;
 
-    public void sendMail(final String to,
-                         final String subject,
-                         final String text,
-                         final boolean isHtmlContent) throws MessagingException {
+    public void sendRegistrationEmail(final User user, final String createdPassword) {
+        String resultContent = content.replaceFirst("\\?", user.getEmail());
+        resultContent = resultContent.replaceFirst("\\?", createdPassword);
+        try {
+            sendMail(user.getEmail(), title, resultContent);
+        }catch (MessagingException | RuntimeException e){
+            log.error("error during sending email: {}", e.getMessage());
+        }
+    }
+
+    private void sendMail(final String to, final String title, final String mailContent) throws MessagingException {
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
         mimeMessageHelper.setTo(to);
-        mimeMessageHelper.setSubject(subject);
-        mimeMessageHelper.setText(text, isHtmlContent);
+        mimeMessageHelper.setSubject(title);
+        mimeMessageHelper.setText(mailContent, true);
         javaMailSender.send(mimeMessage);
-    }
-
-    public void createRegistrationMail(final String email) {
-        final String contentToSend = content.replace("?", email);
-        try {
-            sendMail(email, title, contentToSend, true);
-        } catch (MessagingException ex) {
-            log.error("Error during sending email\n{}", ex.getMessage());
-        }
     }
 }

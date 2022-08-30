@@ -29,29 +29,6 @@ public class UserController {
         return "user/login-form";
     }
 
-    @GetMapping("user/register")
-    public String getRegisterForm(final Model model) {
-        model.addAttribute("userRegisterForm", new UserRegisterForm());
-        return "user/register-form";
-    }
-
-    @PostMapping("/user/register/new")
-    public String registerUser(@ModelAttribute final UserRegisterForm userRegisterForm, final BindingResult bindingResult, final Model model) {
-        if (bindingResult.hasErrors()) {
-            model.addAttribute("userRegisterForm", userRegisterForm);
-            return "user/register-form";
-        }
-        if (userService.checkIfUserExist(userRegisterForm.getEmail())) {
-            model.addAttribute("employeeRegisterForm", userRegisterForm);
-            model.addAttribute("user_error", "user exist");
-            return "user/register-form";
-        }
-        userService.registerUser(userRegisterForm);
-        model.addAttribute("registered_success", "new user registered successfully");
-       log.info("user registered successfully");
-        return "redirect:/index";
-    }
-
     @GetMapping("/user/logout")
     public String logoutPage(final HttpServletRequest request, final HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();

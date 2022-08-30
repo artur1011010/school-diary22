@@ -1,9 +1,7 @@
 package pl.arturzaczek.demoSchool.service;
 
-import javax.mail.MessagingException;
+import pl.arturzaczek.demoSchool.jpa.entities.User;
 
 public interface MailService {
-    void sendMail(String to, String subject, String text, boolean isHtmlContent) throws MessagingException;
-
-    void createRegistrationMail(final String email);
+    void sendRegistrationEmail(User user,  String createdPassword);
 }

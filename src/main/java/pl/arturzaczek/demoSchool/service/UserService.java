@@ -9,13 +9,10 @@ import java.util.List;
 
 public interface UserService {
 
-    void registerUser(UserRegisterForm userRegisterForm);
     ResponseEntity<List<StudentResponse>> getUsersList();
-    void saveUser(User user);
     void save20users();
     ResponseEntity<StudentResponse> getStudentById(Long student_id);
-    ResponseEntity deleteById(Long long_id);
-    boolean checkIfUserExist(String email);
-    List<User> getUserList();
+    ResponseEntity<Void> deleteById(Long long_id);
     List<TeacherDTO> getSchoolTeachersList();
+    void saveNewUser(User user);
 }

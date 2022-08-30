@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>School diary - students</title>
+    <title>School diary - students list</title>
     <th:block th:insert="fragments/imports :: head"></th:block>
     <th:block th:insert="fragments/imports :: student-liks"></th:block>
 </head>
@@ -12,12 +12,12 @@
 <th:block th:insert="fragments/components :: nav"></th:block>
 <div class="main-wrapper container-fluid">
     <a id="button-top"></a>
-    <h4>Students list</h4>
+<!--    <h4>Lista studentów</h4>-->
     <!-- STUDENT SEARCH RESULT -->
-    <button type="button" onclick="add20Students()" class="btn btn-primary">add 20 students</button>
-    <button type="button" onclick="getStudentsList()" class="btn btn-primary">refresh</button>
+<!--    <button type="button" onclick="add20Students()" class="btn btn-primary">add 20 students</button>-->
+<!--    <button type="button" onclick="getStudentsList()" class="btn btn-primary">refresh</button>-->
     <div class="form-group">
-        <label class="mt-2" for="form-search">Search for student:</label>
+        <label class="mt-2" for="form-search">Wyszukaj studenta</label>
         <input type="text" oninput="search()" class="form-control" id="form-search" placeholder="type name, surname or email...">
     </div>
     <div id="studentListResultWrapper">
@@ -31,13 +31,13 @@
                         data-search-formatter="false">Id:
                     </th>
                     <th data-field="firstName" data-sortable="true" data-sorter="nameSorter"
-                        data-search-formatter="false">Firstname:
+                        data-search-formatter="false">Imię:
                     </th>
                     <th data-field="lastName" data-sortable="true" data-sorter="nameSorter"
-                        data-search-formatter="false">Surname:
+                        data-search-formatter="false">Nazwisko:
                     </th>
                     <th data-field="email" data-sortable="true" data-sorter="nameSorter">Email:</th>
-                    <th data-field="birthDate">Birth date:</th>
+                    <th data-field="birthDate">Data urodzenia:</th>
                 </tr>
                 </thead>
             </table>

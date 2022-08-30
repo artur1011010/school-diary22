@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Components</title>
-
 </head>
 <body>
 <th:block th:fragment="nav">
@@ -15,40 +14,34 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item ml-3">
-                    <a class="nav-link ml-3 " th:href="@{/}">Home page</a>
+                    <a class="nav-link ml-3 " th:href="@{/}">Strona główna</a>
                 </li>
-<!--                <li class="nav-item ml-3">-->
-<!--                    <a class="nav-link ml-3 " th:href="@{/changelog}">Changelog</a>-->
-<!--                </li>-->
                 <li class="nav-item ml-3">
-                    <a class="nav-link ml-3 " th:href="@{/doc}">Doc</a>
+                    <a class="nav-link ml-3 " th:href="@{/doc}">Dokumentacja</a>
                 </li>
                 <li class="nav-item ml-3" th:if="${@userContextServiceImpl.isLoggedAsAdmin()}">
-                    <a class="nav-link ml-3" th:href="@{/addStudent}">Add student</a>
+                    <a class="nav-link ml-3" th:href="@{/addStudent}">Dodaj studenta</a>
                 </li>
                 <li class="nav-item ml-3 students-list-icon" th:if="${@userContextServiceImpl.isLoggedAsSchoolEmployee}">
                     <a class="ml-3 nav-link" th:href="@{/studentsList}"><img
-                            th:src="@{~/images/icon/address-book-regular.svg}" alt="address book">Students list</a>
+                            th:src="@{~/images/icon/address-book-regular.svg}" alt="address book">Lista studentów</a>
                 </li>
                 <li class="nav-item ml-3 students-list-icon" th:if="${@userContextServiceImpl.isLoggedAsStudent}">
                     <a class="ml-3 nav-link" th:href="@{/studentsList-student}"><img
-                            th:src="@{~/images/icon/address-book-regular.svg}" alt="address book">Students list</a>
+                            th:src="@{~/images/icon/address-book-regular.svg}" alt="address book">Lista studentów</a>
                 </li>
                 <li class="nav-item ml-3 students-list-icon" th:if="${@userContextServiceImpl.isLoggedAsSchoolEmployee}">
                     <a class="ml-3 nav-link" th:href="@{/student-classes}"><img
-                            th:src="@{~/images/icon/address-book-regular.svg}" alt="address book">School classes</a>
+                            th:src="@{~/images/icon/address-book-regular.svg}" alt="address book">Lista klas</a>
                 </li>
             </ul>
             <ul class="navbar-nav user-field">
                 <li class="nav-item ml-3 user-logged-icon" th:unless="${@userContextServiceImpl.logged}">
                     <a class="nav-link" th:href="@{/user/login}">
-                        <img th:src="@{~/images/icon/user-solid.svg}" alt="user icon">Log in</a>
-                </li>
-                <li class="nav-item ml-3" th:unless="${@userContextServiceImpl.logged}">
-                    <a class="nav-link" th:href="@{/user/register}">Register</a>
+                        <img th:src="@{~/images/icon/user-solid.svg}" alt="user icon">Zaloguj</a>
                 </li>
                 <li class="nav-item ml-3" th:if="${@userContextServiceImpl.logged}">
-                    <a class="nav-link" th:href="@{/user/logout}">Log out</a>
+                    <a class="nav-link" th:href="@{/user/logout}">Wyloguj</a>
                 </li>
                 <div id="user-logged-icon" class="nav-item ml-3 mt-2">
                     <a th:href="@{/studentProfile/}"

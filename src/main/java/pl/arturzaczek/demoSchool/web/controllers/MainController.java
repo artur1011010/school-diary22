@@ -19,10 +19,4 @@ public class MainController {
         log.debug("url= /doc, method=getDocumentation()");
         return "doc/mian-doc";
     }
-
-    @GetMapping("/changelog")
-    public String getChangelog(){
-        log.debug("url= /changelog, method=getChangelog()");
-        return "changelog";
-    }
 }

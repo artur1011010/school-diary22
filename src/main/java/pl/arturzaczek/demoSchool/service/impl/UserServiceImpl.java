@@ -5,9 +5,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pl.arturzaczek.demoSchool.dto.StudentResponse;
 import pl.arturzaczek.demoSchool.dto.TeacherDTO;
-import pl.arturzaczek.demoSchool.dto.UserRegisterForm;
 import pl.arturzaczek.demoSchool.jpa.entities.Role;
 import pl.arturzaczek.demoSchool.jpa.entities.User;
 import pl.arturzaczek.demoSchool.jpa.repositories.RoleRepository;
@@ -18,9 +18,9 @@ import pl.arturzaczek.demoSchool.utils.RandomUserHelper;
 import pl.arturzaczek.demoSchool.utils.RoleEnum;
 import pl.arturzaczek.demoSchool.utils.UserMapper;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -35,20 +35,6 @@ public class UserServiceImpl implements UserService {
     private final RandomUserHelper randomUserHelper;
     private final UserMapper userMapper;
 
-    public void registerUser(final UserRegisterForm userRegisterForm) {
-        final User user = User.builder()
-                .firstName(userRegisterForm.getFormName())
-                .lastName(userRegisterForm.getFormLastName())
-                .email(userRegisterForm.getEmail())
-                .passwordHash(passwordEncoder.encode(userRegisterForm.getPassword()))
-                .build();
-        user.setAddedDate(LocalDateTime.now());
-        getORCreateDefaultRole(user);
-        userRepository.save(user);
-        log.info("User saved: {}", user);
-//        mailService.createRegistrationMail(userRegisterForm.getEmail());
-    }
-
     public ResponseEntity<List<StudentResponse>> getUsersList() {
         return ResponseEntity.ok(userRepository
                 .findAll()
@@ -57,10 +43,17 @@ public class UserServiceImpl implements UserService {
                 .collect(Collectors.toList()));
     }
 
-    public void saveUser(final User user) {
+    @Transactional
+    public void saveNewUser(final User user){
+        final String createdPassword = UUID.randomUUID().toString();
+        user.setPasswordHash(passwordEncoder.encode(createdPassword));
+        getOrCreateDefaultRole(user);
+        getOrCreateStudentRole(user);
+        mailService.sendRegistrationEmail(user, createdPassword);
         userRepository.save(user);
     }
 
+    @Transactional
     public void save20users() {
         randomUserHelper.createAndSave20TestUsers();
     }
@@ -82,28 +75,18 @@ public class UserServiceImpl implements UserService {
         return ResponseEntity.ok().build();
     }
 
-    public boolean checkIfUserExist(final String email) {
-        return userRepository
-                .findFirstByEmail(email)
-                .isPresent();
-    }
-
-    protected void getORCreateDefaultRole(final User user) {
+    protected void getOrCreateDefaultRole(final User user) {
         final Role role = roleRepository
                 .findByRoleName(RoleEnum.ROLE_USER.toString())
                 .orElseGet(() -> roleRepository.save(new Role(RoleEnum.ROLE_USER.toString())));
         user.addRole(role);
     }
 
-    protected void getORCreateDefaultRole(final User user, final RoleEnum roleEnum) {
+    protected void getOrCreateStudentRole(final User user) {
         final Role role = roleRepository
-                .findByRoleName(roleEnum.toString())
-                .orElseGet(() -> roleRepository.save(new Role(roleEnum.toString())));
+                .findByRoleName(RoleEnum.ROLE_USER.toString())
+                .orElseGet(() -> roleRepository.save(new Role(RoleEnum.ROLE_USER.toString())));
         user.addRole(role);
-    }
-
-    public List<User> getUserList() {
-        return userRepository.findAll();
     }
 
     @Override
@@ -121,5 +104,4 @@ public class UserServiceImpl implements UserService {
                 .collect(Collectors.toList())
                 .contains("ROLE_TEACHER");
     }
-
 }
