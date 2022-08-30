@@ -22,7 +22,8 @@
                 <li class="nav-item ml-3" th:if="${@userContextServiceImpl.isLoggedAsAdmin()}">
                     <a class="nav-link ml-3" th:href="@{/addStudent}">Dodaj studenta</a>
                 </li>
-                <li class="nav-item ml-3 students-list-icon" th:if="${@userContextServiceImpl.isLoggedAsSchoolEmployee}">
+                <li class="nav-item ml-3 students-list-icon"
+                    th:if="${@userContextServiceImpl.isLoggedAsSchoolEmployee}">
                     <a class="ml-3 nav-link" th:href="@{/studentsList}"><img
                             th:src="@{~/images/icon/address-book-regular.svg}" alt="address book">Lista studentów</a>
                 </li>
@@ -30,12 +31,16 @@
                     <a class="ml-3 nav-link" th:href="@{/studentsList-student}"><img
                             th:src="@{~/images/icon/address-book-regular.svg}" alt="address book">Lista studentów</a>
                 </li>
-                <li class="nav-item ml-3 students-list-icon" th:if="${@userContextServiceImpl.isLoggedAsSchoolEmployee}">
+                <li class="nav-item ml-3 students-list-icon"
+                    th:if="${@userContextServiceImpl.isLoggedAsSchoolEmployee}">
                     <a class="ml-3 nav-link" th:href="@{/student-classes}"><img
                             th:src="@{~/images/icon/address-book-regular.svg}" alt="address book">Lista klas</a>
                 </li>
             </ul>
             <ul class="navbar-nav user-field">
+                <li class="nav-item ml-3 user-logged-icon" th:if="${@userContextServiceImpl.isLoggedAsStudent()}">
+                    <a class="nav-link" th:href="@{/my-profile}">Mój profil</a>
+                </li>
                 <li class="nav-item ml-3 user-logged-icon" th:unless="${@userContextServiceImpl.logged}">
                     <a class="nav-link" th:href="@{/user/login}">
                         <img th:src="@{~/images/icon/user-solid.svg}" alt="user icon">Zaloguj</a>
@@ -44,10 +49,10 @@
                     <a class="nav-link" th:href="@{/user/logout}">Wyloguj</a>
                 </li>
                 <div id="user-logged-icon" class="nav-item ml-3 mt-2">
-                    <a th:href="@{/studentProfile/}"
-                       th:if="${@userContextServiceImpl.isLogged}"
-                       th:text="${@userContextServiceImpl.loggedAs}">
-                    </a>
+                    <p
+                            th:if="${@userContextServiceImpl.isLogged}"
+                            th:text="${@userContextServiceImpl.loggedAs}">
+                    </p>
                 </div>
             </ul>
         </div>

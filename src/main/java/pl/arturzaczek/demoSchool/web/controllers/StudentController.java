@@ -33,6 +33,12 @@ public class StudentController {
         return "student/studentsListStudent";
     }
 
+    @GetMapping("/my-profile")
+    public String getMyProfile() {
+        log.info("url= /my-profile, method=getMyProfile()");
+        return "student/myProfile";
+    }
+
     @GetMapping("/studentProfile")
     public String getStudentProfile() {
         log.info("url= /studentProfile, method=getStudentProfile()");

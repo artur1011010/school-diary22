@@ -11,7 +11,6 @@
     <div class="row form-basic mt-3 justify-content-center">
         <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12">
             <div id="profile_id" th:text="${student_id}"></div>
-            <!--            <button type="button" onclick="getStudentDetails()" class="btn btn-primary">getStudentDetails</button>-->
             <h4>Student profile:</h4>
             <div class="input-group mb-3">
                 <input type="text" id="id-details" class="form-control rounded-right" placeholder="id" disabled="true"
@@ -88,7 +87,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="add-grade-subject1">Select Subject</label>
+                                <label for="add-grade-subject1">Wybierz przedmiot</label>
                                 <select class="form-control" id="add-grade-subject1">
                                     <option>English</option>
                                     <option>Maths</option>
@@ -101,10 +100,10 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" onclick="getStudentDetails()" class="btn btn-secondary"
-                                    data-dismiss="modal">Close
+                                    data-dismiss="modal">Zamknij
                             </button>
                             <button type="button" onclick="addGradeProfile()" data-dismiss="modal"
-                                    class="btn btn-primary">Save grade
+                                    class="btn btn-primary">Zapisz ocene
                             </button>
                         </div>
                     </div>
@@ -122,8 +121,7 @@
                     <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
                          data-bs-parent="#grades-accordion">
                         <div class="accordion-body">
-                            <div id="grade-list-empty" class="alert alert-warning" role="alert">this student has no
-                                grades...
+                            <div id="grade-list-empty" class="alert alert-warning" role="alert">Brak ocen
                             </div>
                             <div id="grade-list"></div>
                         </div>

@@ -25,7 +25,7 @@ public class StudentRestController {
 
     @PostMapping("/student")
     public ResponseEntity<Void> addStudent(@RequestBody final User user) {
-        log.debug("url= /rest/student, method=addStudent() STUDENT: " + user);
+        log.debug("url= /rest/student, method=addStudent() User: {}", user);
         userService.saveNewUser(user);
         return ResponseEntity.ok().build();
     }
@@ -38,20 +38,20 @@ public class StudentRestController {
 
     @GetMapping("/student/{studentId}")
     public ResponseEntity<StudentResponse> getStudentById(@PathVariable final Long studentId) {
-        log.debug("url= /rest/student/{student_id}, method=getStudentById() STUDENT: " + studentId);
+        log.debug("url= /rest/student/{}, method=getStudentById()", studentId);
         return userService.getStudentById(studentId);
     }
 
     @DeleteMapping("/student/{studentId}")
     public ResponseEntity<Void> deleteStudentById(@PathVariable final Long studentId) {
-        log.debug("url= /rest/student/{student_id}, method=deleteStudentById() STUDENT: " + studentId);
+        log.debug("url= /rest/student/{}, method=deleteStudentById() ", studentId);
         userService.deleteById(studentId);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/student/my-profile")
-    public ResponseEntity<StudentResponse> getMyProfileData(@PathVariable final Long studentId) {
-        log.debug("url= /rest/student/{student_id}, method=getStudentById() STUDENT: " + studentId);
-        return userService.getStudentById(studentId);
+    public ResponseEntity<StudentResponse> getStudentsProfile() {
+        log.debug("url= /student/my-profile, method=getStudentsProfile()");
+        return userService.getStudentsProfile();
     }
 }

@@ -1,3 +1,32 @@
+function getStudentDetailsForMyProfile() {
+    $.ajax({
+        url: "/rest/student/my-profile/",
+        contentType: "application/json",
+        dataType: "json",
+        method: "GET",
+        success: function (result) {
+            console.log(result)
+            populateProfile(result);
+        }
+    })
+}
+
+function populateProfileForMyProfile(data) {
+    const $studentId = $('#id-details');
+    const $firstName = $('#first-name-details');
+    const $lastName = $('#last-name-details');
+    const $email = $('#email-details');
+    const $birthDate = $('#birth-date-details');
+    // todo - prevent undefined error
+    // console.log(data.gradeList)
+    populateGrades(data.gradeList);
+    $studentId.val(data.id);
+    $firstName.val(data.firstName);
+    $lastName.val(data.lastName);
+    $email.val(data.email);
+    $birthDate.val(data.birthDate);
+}
+
 function getStudentDetails() {
     let id_student = $('#id_student-details').val();
     if (!id_student) {

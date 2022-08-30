@@ -15,4 +15,5 @@ public interface UserService {
     ResponseEntity<Void> deleteById(Long long_id);
     List<TeacherDTO> getSchoolTeachersList();
     void saveNewUser(User user);
+    ResponseEntity<StudentResponse> getStudentsProfile();
 }

@@ -13,6 +13,7 @@ import pl.arturzaczek.demoSchool.jpa.entities.User;
 import pl.arturzaczek.demoSchool.jpa.repositories.RoleRepository;
 import pl.arturzaczek.demoSchool.jpa.repositories.UserRepository;
 import pl.arturzaczek.demoSchool.service.MailService;
+import pl.arturzaczek.demoSchool.service.UserContextService;
 import pl.arturzaczek.demoSchool.service.UserService;
 import pl.arturzaczek.demoSchool.utils.RandomUserHelper;
 import pl.arturzaczek.demoSchool.utils.RoleEnum;
@@ -29,6 +30,7 @@ import java.util.stream.Collectors;
 public class UserServiceImpl implements UserService {
 
     private final MailService mailService;
+    private final UserContextService userContextService;
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
@@ -58,20 +60,20 @@ public class UserServiceImpl implements UserService {
         randomUserHelper.createAndSave20TestUsers();
     }
 
-    public ResponseEntity<StudentResponse> getStudentById(final Long student_id) {
-        final Optional<User> byId = userRepository.findById(student_id);
+    public ResponseEntity<StudentResponse> getStudentById(final Long studentId) {
+        final Optional<User> byId = userRepository.findById(studentId);
         if (byId.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(userMapper.mapUserToStudentResponse(byId.get()));
     }
 
-    public ResponseEntity<Void> deleteById(final Long long_id) {
-        final Optional<User> byId = userRepository.findById(long_id);
+    public ResponseEntity<Void> deleteById(final Long studentId) {
+        final Optional<User> byId = userRepository.findById(studentId);
         if (byId.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-        userRepository.deleteById(long_id);
+        userRepository.deleteById(studentId);
         return ResponseEntity.ok().build();
     }
 
@@ -103,5 +105,11 @@ public class UserServiceImpl implements UserService {
                 .map(Role::getRoleName)
                 .collect(Collectors.toList())
                 .contains("ROLE_TEACHER");
+    }
+
+    @Override
+    public ResponseEntity<StudentResponse> getStudentsProfile() {
+        final Long loggedId = userContextService.getLoggedId();
+        return getStudentById(loggedId);
     }
 }
