@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>School diary - register user</title>
+    <title>School diary - add new student</title>
     <th:block th:insert="fragments/imports :: head"></th:block>
     <th:block th:insert="fragments/imports :: student-liks"></th:block>
 </head>
@@ -13,11 +13,11 @@
     <div class="row form-basic mt-3 justify-content-center">
         <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12">
             <div id="success-msg" class="alert alert-success mb-4" role="alert">
-                User was successfully created!
+               Student został prawidłowo dodany!
             </div>
-            <h4>Create new student</h4>
+            <h4>Dodaj nowego studenta do systemu</h4>
             <div class="input-group mb-3">
-                <input type="text" id="first-name" class="form-control rounded-right" placeholder="firstname">
+                <input type="text" id="first-name" class="form-control rounded-right" placeholder="imię">
                 <div class="valid-feedback">
                     Ok!
                 </div>
@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="input-group mb-3">
-                <input type="text" id="last-name" class="form-control rounded-right" placeholder="surname">
+                <input type="text" id="last-name" class="form-control rounded-right" placeholder="nazwisko">
                 <div class="valid-feedback">
                     Ok!
                 </div>
@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div class="input-group mb-3">
-                <input type="text" id="email" class="form-control rounded-right" placeholder="email">
+                <input type="text" id="email" class="form-control rounded-right" placeholder="adres email">
                 <span class="input-group-text" id="mail">for@example.com</span>
                 <div class="valid-feedback">
                     Ok!
@@ -44,11 +44,9 @@
                     Please provide email address.
                 </div>
             </div>
-            <label for="birth-date" class="form-label">Birth date</label>
             <div class="input-group mb-3">
-                <input type="date" id="birth-date" class="form-control datepicker rounded-right"
-                       placeholder="birth date" min="1960-01-01" max="2005-12-31">
-                <span class="input-group-text">Birth date</span>
+                <input type="date" id="birth-date" class="form-control datepicker rounded-right" min="1960-01-01" max="2005-12-31">
+                <span class="input-group-text">Data urodzenia</span>
                 <div class="valid-feedback">
                     Ok!
                 </div>
@@ -56,7 +54,7 @@
                     Please provide date between (1960-2005).
                 </div>
             </div>
-            <button type="button" class="btn btn-secondary" onclick="addStudent()">Submit</button>
+            <button type="button" class="btn btn-secondary" onclick="addStudent()">Zapisz</button>
         </div>
     </div>
 </div>

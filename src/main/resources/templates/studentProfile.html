@@ -11,83 +11,56 @@
     <div class="row form-basic mt-3 justify-content-center">
         <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12">
             <div id="profile_id" th:text="${student_id}"></div>
-            <h4>Student profile:</h4>
-            <div class="input-group mb-3">
-                <input type="text" id="id-details" class="form-control rounded-right" placeholder="id" disabled="true"
-                       value="testowe ID">
-                <div class="valid-feedback">
-                    Ok!
-                </div>
-                <div class="invalid-feedback">
-                    Proszę wpisać imie
-                </div>
+            <h4>Profil studenta:</h4>
+            <div class="form-group mb-3">
+                <label for="id-details">Id studenta:</label>
+                <input type="text" id="id-details" class="form-control rounded-right" placeholder="id" disabled="true">
             </div>
+            <label for="first-name-details">Imię:</label>
             <div class="input-group mb-3">
                 <input type="text" id="first-name-details" class="form-control rounded-right" placeholder="imie"
                        disabled="true" value="testowe imie">
-                <div class="valid-feedback">
-                    Ok!
-                </div>
-                <div class="invalid-feedback">
-                    Proszę wpisać imie
-                </div>
             </div>
+            <label for="last-name-details" class="form-label">Nazwisko:</label>
             <div class="input-group mb-3">
                 <input type="text" id="last-name-details" class="form-control rounded-right" placeholder="nazwisko"
                        disabled="true" value="testowe nazwisko">
-                <div class="valid-feedback">
-                    Ok!
-                </div>
-                <div class="invalid-feedback">
-                    Proszę wpisać nazwisko
-                </div>
             </div>
+            <label for="email-details" class="form-label">Adres email:</label>
             <div class="input-group mb-3">
                 <input type="text" id="email-details" class="form-control rounded-right" placeholder="email"
                        disabled="true" value="testowy email">
-                <div class="valid-feedback">
-                    Ok!
-                </div>
-                <div class="invalid-feedback">
-                    Proszę o prawidłowy adres email
-                </div>
             </div>
-            <label for="birth-date-details" class="form-label">Data urodzenia</label>
+            <label for="birth-date-details" class="form-label">Data urodzenia:</label>
             <div class="input-group mb-3">
                 <input type="date" id="birth-date-details" class="form-control datepicker rounded-right"
                        placeholder="data urodzenia" min="1960-01-01" max="2005-12-31" disabled="true"
                        value="2005-12-31">
-                <div class="valid-feedback">
-                    Ok!
-                </div>
-                <div class="invalid-feedback">
-                    Proszę o podanie prawidłowej daty urodzenia (1960-2005)
-                </div>
             </div>
             <!--            MODAL-->
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-grade-modal">
-                Add grade
+                Wystaw ocenę
             </button>
             <!-- Modal -->
             <div class="modal fade" id="add-grade-modal" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Add grade</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Dodawanie oceny:</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="add-grade-value">Select Grade</label>
+                                <label for="add-grade-value">Wybierz ocenę:</label>
                                 <select class="form-control" id="add-grade-value">
                                     <option th:each="grade : ${grades}" th:text="${grade}" th:value="${grade}"></option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="add-grade-subject1">Wybierz przedmiot</label>
+                                <label for="add-grade-subject1">Wybierz przedmiot:</label>
                                 <select class="form-control" id="add-grade-subject1">
                                     <option>English</option>
                                     <option>Maths</option>
@@ -103,7 +76,7 @@
                                     data-dismiss="modal">Zamknij
                             </button>
                             <button type="button" onclick="addGradeProfile()" data-dismiss="modal"
-                                    class="btn btn-primary">Zapisz ocene
+                                    class="btn btn-primary">Zapisz ocenę
                             </button>
                         </div>
                     </div>
