@@ -23,6 +23,8 @@ public class MailServiceImpl implements MailService {
     @Value("${mail.title}")
     private String title;
 
+    private static String domain = "szkola-2022@wp.pl";
+
     private final JavaMailSender javaMailSender;
 
     public void sendRegistrationEmail(final User user, final String createdPassword) {
@@ -30,17 +32,18 @@ public class MailServiceImpl implements MailService {
         resultContent = resultContent.replaceFirst("\\?", createdPassword);
         try {
             sendMail(user.getEmail(), title, resultContent);
-        }catch (MessagingException | RuntimeException e){
+        } catch (MessagingException | RuntimeException e) {
             log.error("error during sending email: {}", e.getMessage());
         }
     }
 
     private void sendMail(final String to, final String title, final String mailContent) throws MessagingException {
-        MimeMessage mimeMessage = javaMailSender.createMimeMessage();
-        MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
+        final MimeMessage message = javaMailSender.createMimeMessage();
+        final MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(message, true, "UTF-8");
+        mimeMessageHelper.setFrom(domain);
         mimeMessageHelper.setTo(to);
         mimeMessageHelper.setSubject(title);
         mimeMessageHelper.setText(mailContent, true);
-        javaMailSender.send(mimeMessage);
+        javaMailSender.send(message);
     }
 }
