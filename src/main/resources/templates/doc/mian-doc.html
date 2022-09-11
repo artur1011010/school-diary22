@@ -10,29 +10,47 @@
     <a id="button-top"></a>
     <div class="col-8 mt-3 custom-jumbotron">
         <div class="h-100 p-5 bg-light border rounded-3">
-            <h4 class="text-center">Dodawanie użytkowników:</h4>
-            <p>Domyślnie aplikacja posiada kilku użytkowników na których można się logować</p>
-            <ul>
-                <li>Admin: <br>mail: admin@gmail.com<br>hasło: admin</li>
-                <li>Nauczyciel: <br>mail: teacher@gmail.com<br>hasło: teacher</li>
-                <li>Tworzeni są także losowi użytkownicy dla których loginem i hasłem jest email.</li>
-            </ul>
 
-            <p>Po zalogowaniu użytkownikiem posiadajacym role pracownika szkoły lub admina jest dostępna funkcjonalność
-                dodawania
-                pojedyńczych użytkowników za pomocą formularza dostępnego w pasku
-                nawigacji "dodaj studenta".</p>
+            <h4 class="text-center">Rodzaje użytkowników:</h4>
+            <p>Używanie aplikacji jest możliwe dopiero po zalogowaniu, użytkownik niezalogowany posiada bardzo
+                ograniczone uprawnienia i może przegladać stronę główną, dokumentacje oraz logować się, zalogowani
+                użytkownicy mogą posiadać różne role, w zależności od posiadanych ról użytkownicy mogą korzystać z
+                innych funkcji serisu. Role zdefiniowane w systemie to: USER, TEACHER, ADMIN, STUDENT.</p>
             <hr/>
+
+            <h4 class="text-center">Testowi użytkownicy:</h4>
+            <p>Domyślnie aplikacja posiada kilku gotowych użytkowników na których można się logować, są to:</p>
+            <ul>
+                <li>Administrator z rolami (USER, ADMIN): <br>mail: admin@gmail.com<br>hasło: admin</li>
+                <li>Nauczyciel z rolami (USER, TEACHER): <br>mail: teacher@gmail.com<br>hasło: teacher</li>
+                <li>Tworzeni są także losowi studenci z rolami z rolami (USER, STUDENT) dla których loginem i hasłem
+                    jest email.
+                </li>
+            </ul>
+            <hr/>
+
+            <h4 class="text-center">Dodawanie studentów:</h4>
+            <p>Po zalogowaniu użytkownikiem posiadajacym role admina jest dostępna funkcjonalność dodawania
+                pojedyńczych użytkowników z rola STUDENT za pomocą formularza dostępnego w pasku
+                nawigacji "dodaj studenta". po dodaniu nowego studenta na jego adres email z formularza zostanie wysłany
+                mail potwierdzający rejestracje oraz wygenerowane hasło.</p>
+            <hr/>
+
             <h4 class="text-center">Przeglądanie studentów:</h4>
             <p>Każdy użytkownik po zalogowaniu może przeglądać listę studentów w podstawowym zakresie danych</p>
-            <p>Po zalogowaniu użytkownikiem posiadajacym role pracownika szkoły lub admina można przegladać listę
+            <p>Po zalogowaniu użytkownikiem posiadajacym role ADMIN lub TEACHER można przegladać listę
                 studentów z pełnym dostępem do danych i ocen, można też z poziomu listy usuwać użytkowników systemu.</p>
             <hr/>
+
             <h4 class="text-center">Wystawianie ocen:</h4>
-            <p>Po zalogowaniu na użytkownika z rolą ADMIN, TEACHER lub PRINCIPAL dostajemy możliwość wystawiania ocen
+            <p>Po zalogowaniu na użytkownika z rolą ADMIN lub TEACHER dostajemy możliwość wystawiania ocen
                 studentom, w tym celu trzeba wybrac będąc zalogowanym "Lista studentów" wyszukać studenta i klikajac "+"
                 rozwinąc szczegóły, wejść na profil studenta i tam można dodawać oceny.</p>
+            <hr/>
 
+            <h4 class="text-center">Przeglądanie klas:</h4>
+            <p>Po zalogowaniu jako Administrator można też przegladać i dodawać klasy do listy za pomocą funckji
+                dostępnych w pasku nawigacji pod przyciskiem "Lista klas".</p>
         </div>
     </div>
 </div>

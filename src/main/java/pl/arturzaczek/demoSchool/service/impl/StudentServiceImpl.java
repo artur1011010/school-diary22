@@ -43,16 +43,16 @@ public class StudentServiceImpl implements StudentService {
             roleService.getORCreateDefaultRole(admin, RoleEnum.ROLE_ADMIN);
 
             final User teacher = User.builder()
-                    .firstName("Teacher")
-                    .lastName("Teacher")
+                    .firstName("Piotr")
+                    .lastName("Nauczyciel")
                     .email("teacher@gmail.com")
                     .passwordHash(passwordEncoder.encode("teacher"))
                     .build();
 
 
             final User teacher2 = User.builder()
-                    .firstName("Nauczyciel")
-                    .lastName("Nauczyciel")
+                    .firstName("Dorota")
+                    .lastName("Szkolna")
                     .email("nauczyciel@gmail.com")
                     .passwordHash(passwordEncoder.encode("nauczyciel"))
                     .build();
