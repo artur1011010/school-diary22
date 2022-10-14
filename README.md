@@ -1,6 +1,7 @@
 # School 2022
-
-School diary simulation, app allows managing users (eg. students) add grades made based on Java 11 and Spring
+Aplikacje Bazodanowe w Java EE
+author:
+Artur Zaczek
 
 ## Built With
 
